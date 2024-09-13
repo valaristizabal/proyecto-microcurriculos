@@ -1,0 +1,223 @@
+/* Archivo: public/css/dashboard.css */
+
+.main-header.navbar {
+    background: linear-gradient(90deg, #ffffff, #e0f2f1);
+    color: #5b0000;
+    
+}
+
+
+.main-sidebar.sidebar-dark-primary {
+    background: linear-gradient(180deg, #000000, #505151);
+}
+
+.main-sidebar .nav-link.active, 
+.main-sidebar .nav-link:hover {
+    background-color: #5b0000;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sidebar p {
+    color: white;
+}
+
+[class*=sidebar-dark-] .sidebar a {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.brand-link, .user-panel .info, .brand-text, .nav-icon {
+    color: white;
+}
+
+.brand-link {
+    background: linear-gradient(180deg, #000000, #505151);
+    text-align: center;
+}
+
+.user-panel .image img {
+    border: 2px solid #004d1a;
+}
+
+.content-header {
+    background-color: #ffffff;
+}
+
+.content-wrapper {
+    background-color: #ffffff;
+    
+}
+
+.nav-sidebar .nav-item .nav-link {
+    border-radius: 10px;
+    margin: 5px 0;
+    padding: 10px;
+    font-weight: 600;
+    
+}
+
+.nav-sidebar .nav-item .nav-icon {
+    margin-right: 10px;
+}
+
+.nav-sidebar .nav-item .nav-link i {
+    font-size: 18px;
+}
+
+.historial-link {
+    background: linear-gradient(180deg, #000000, #505151);
+    color: #ffffff !important; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: all 0.3s ease;
+}
+
+.historial-link:hover {
+    background-color: #000000 !important; /* Fondo más oscuro al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+/* Estilos personalizados para el Dashboard */
+.welcome-section {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.info-cards {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.info-cards .card {
+    flex: 1 1 calc(33.333% - 1rem);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.info-cards .card-body {
+    padding: 1.5rem;
+}
+
+.info-cards .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-cards .card-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.custom-sidebar-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #343a40;
+    color: #fff;
+    z-index: 1040;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+}
+.help-section {
+    position: fixed;
+    top: 80px;
+    right: 1rem;
+    width: 300px;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    background: linear-gradient(180deg, #3f3939, #505151);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.help-section h5 {
+    font-size: 1.25rem;
+    color: #e3e3e3; /* Color verde oscuro */
+    margin-bottom: 15px;
+}
+
+.help-section p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #ffffff; /* Color verde oscuro */
+}
+
+.help-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.help-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.help-item i {
+    font-size: 1.2rem;
+    color: #009933; /* Color verde oscuro */
+    margin-right: 10px;
+}
+
+.help-item p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #004d00; /* Color verde más oscuro */
+}
+
+/*cambio de sección al dar clic en los botones*/
+.nav-link.active-custom {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    
+}
+
+/* negrilla para el codigo generado en identificacion */
+.custom-input {
+    font-weight: bold;
+}
+
+
+
+/* pruebas scrollbar */
+
+/* Estilo para WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e0f2e9; /* Fondo claro con un tono verde */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Verde principal */
+    border-radius: 6px;
+    border: 2px solid #e0f2e9; /* Borde del thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #388E3C; /* Verde más oscuro en hover */
+}
+
+/* Estilo global para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #000000 #e0f2e9; /* Verde para el thumb y verde claro para el track */
+}

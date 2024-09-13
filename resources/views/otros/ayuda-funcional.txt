@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="https://www.ugc.edu.co/bogota/templates/yootheme/cache/41/escudo-41a28286.png" type="image/png">
+    <title>Dashboard - Microcurrículo</title>
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css">
+    <!-- FontAwesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=swap">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/botones.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/formulario.css') }}">
+
+    <!-- sweetalert -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+
+    
+
+</head>
+
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+        
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" id="brand-link" class="brand-link">
+                <img src="https://cdn-icons-png.flaticon.com/128/942/942799.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Microcurriculo</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2202/2202112.png" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block" onclick="loadProfile()">Maicol García</a>
+                    </div>
+                </div>
+                
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link historial-link" onclick="showManageIdentification()">
+                                <i class="nav-icon fas fa-history"></i>
+                                <p>Historial</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="identificacion" onclick="showIdentification()">
+                                <i class="nav-icon fas fa-id-badge"></i>
+                                <p>Identificación</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="estructura-curricular" onclick="showCurricularStructure()">
+                                <i class="nav-icon fas fa-sitemap"></i>
+                                <p>Estructura Curricular</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="propositos-formativos" onclick="showEducationalPurposes()">
+                                <i class="nav-icon fas fa-bullseye"></i>
+                                <p>Propósitos Formativos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="competencias-especificas-curso" onclick="showCompetenciasEspecificas()">
+                                <i class="nav-icon fas fa-tasks"></i>
+                                <p>Competencias Específicas del Curso</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="competencias-genericas-transversales" onclick="showGenericCompetencies()">
+                                <i class="nav-icon fas fa-lightbulb"></i>
+                                <p>Competencias Genéricas Transversales</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="consistencia-curricular" onclick="showConsistencyCurricular()">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>Consistencia Curricular</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="aportes-curso-proyecto-integrador" onclick="showCourseContributions()">
+                                <i class="nav-icon fas fa-project-diagram"></i>
+                                <p>Aportes del Curso al Proyecto Integrador</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="plan-tematico" onclick="showThematicPlan()">
+                                <i class="nav-icon fas fa-list-alt"></i>
+                                <p>Plan Temático</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="medios-educativos" onclick="showEducationalMedia()">
+                                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                <p>Medios Educativos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="material-apoyo" onclick="showSupportMaterials()">
+                                <i class="nav-icon fas fa-book-open"></i>
+                                <p>Material de Apoyo</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="plan-lector" onclick="showReadingPlan()">
+                                <i class="nav-icon fas fa-book-reader"></i>
+                                <p>Plan Lector</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="mecanismos-evaluacion" onclick="showEvaluationMechanisms()">
+                                <i class="nav-icon fas fa-clipboard-check"></i>
+                                <p>Mecanismos de Evaluación</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="instrumentos-evaluacion" onclick="showEvaluationInstruments()">
+                                <i class="nav-icon fas fa-poll-h"></i>
+                                <p>Instrumentos de Evaluación</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="perfil-docente" onclick="showTeacherProfile()" data-action="teacher-profile">
+                                <i class="nav-icon fas fa-user-tie"></i>
+                                <p>Perfil del Docente</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Microcurrículo</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <!-- Sección de contenido principal -->
+                            <div class="progress" style="height: 30px; margin: 20px;">
+                                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                            <section id="content-section">
+                                <div class="welcome-section">
+                                    <h2 class="h4">Bienvenido al Dashboard de Microcurrículo</h2>
+                                    <p>En esta sección, puedes gestionar y revisar todos los aspectos relacionados con el microcurrículo. Explora las secciones a continuación para obtener una visión general y acceder a las herramientas más importantes.</p>
+                                </div>
+                                <!-- Aquí puedes agregar el contenido principal -->
+                            </section>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- Columna de ayuda -->
+                                <div class="col-md-4">
+                                    <div class="help-section">
+                                        <!-- Aquí va el contenido dinámico de la ayuda -->
+                                <h5><i class="fas fa-info-circle"></i> Ayuda</h5>
+                                <p>Selecciona una sección para ver la ayuda correspondiente.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js"></script>
+    <!-- Archivo JS personalizado -->
+    <script src="js/PerfilUsuario.js"></script>
+    <script src="js/identificacion.js"></script>
+    <script src="js/Visualizar.js"></script>
+    <script src="js/tipoCredito.js"></script>
+    <script src="js/EstructuraCurricular.js"></script>
+    <script src="js/PropositosFormativos.js"></script>
+    <script src="js/CompetenciasEspecificas.js"></script>
+    <script src="js/CompetenciasGenericas.js"></script>
+    <script src="js/ConsistenciaCurricular.js"></script>
+    <script src="js/ProyectoIntegrador.js"></script>
+    <script src="js/PlanTematico.js"></script>
+    <script src="js/MediosEducativos.js"></script>
+    <script src="js/MaterialDeApoyo.js"></script>
+    <script src="js/PlanLector.js"></script>
+    <script src="js/MecanismosDeEvaluacion.js"></script>
+    <script src="js/InstrumentosDeEvaluacion.js"></script>
+    <script src="js/PerfilDocente.js"></script>
+    <script src="js/dashboard.js"></script>
+<script>
+    // Contenido de ayuda
+      // Contenido de ayuda
+const helpContent = {
+    identificacion: `
+        <h5><i class="fas fa-info-circle"></i> Ayuda: Identificación</h5>
+        <p>Encuentra información útil sobre cómo llenar la sección de Identificación:</p>
+        <div class="help-item"><i class="fas fa-university"></i><p><strong>Facultad:</strong> Selecciona la facultad correspondiente.</p></div>
+        <div class="help-item"><i class="fas fa-book"></i><p><strong>Programa:</strong> Selecciona el programa académico.</p></div>
+        <div class="help-item"><i class="fas fa-chalkboard"></i><p><strong>Nombre del Curso:</strong> Introduce el nombre del curso.</p></div>
+        <div class="help-item"><i class="fas fa-user-edit"></i><p><strong>Elaborado por:</strong> Introduce el nombre del responsable.</p></div>
+        <div class="help-item"><i class="fas fa-calendar-day"></i><p><strong>Fecha última actualización:</strong> Selecciona la fecha de la última actualización.</p></div>
+        <div class="help-item"><i class="fas fa-calendar-check"></i><p><strong>Fecha aprobación del Comité Curricular:</strong> Selecciona la fecha de aprobación.</p></div>
+        <div class="help-item"><i class="fas fa-language"></i><p><strong>Idioma:</strong> Selecciona el idioma del curso.</p></div>
+        <div class="help-item"><i class="fas fa-tag"></i><p><strong>Código:</strong> Introduce el código del curso.</p></div>
+        <div class="help-item"><i class="fas fa-file-signature"></i><p><strong>Acta de aprobación del Consejo de Facultad:</strong> Introduce el número de acta.</p></div>
+    `,
+    'estructura-curricular': `
+        <h5><i class="fas fa-info-circle"></i> Ayuda: Estructura Curricular</h5>
+        <p>Encuentra información útil sobre cómo llenar la sección de Estructura Curricular:</p>
+        <div class="help-item"><i class="fas fa-sitemap"></i><p><strong>Estructura Curricular:</strong> Detalla los componentes del curso y su organización.</p></div>
+    `,
+    // Agrega más secciones de ayuda aquí
+};
+
+// Función para actualizar el contenido de ayuda
+function updateHelpContent(section) {
+    const helpSection = document.querySelector('.help-section');
+    helpSection.innerHTML = helpContent[section] || '<h5><i class="fas fa-info-circle"></i> Ayuda</h5><p>No hay información de ayuda disponible para esta sección.</p>';
+}
+
+// Agregar el evento click a los enlaces del menú lateral
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const section = this.getAttribute('data-section');
+        updateHelpContent(section);
+    });
+});
+
+
+        </script>
+
+    <script>
+    document.getElementById('brand-link').addEventListener('click', function(event) {
+        event.preventDefault();  // Evita el comportamiento por defecto del enlace
+        location.reload();       // Recarga la página
+    });
+    </script>
+</body>
+</html>
+
+
